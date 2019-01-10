@@ -1,29 +1,3 @@
-from prettytable import PrettyTable
-from cm import ExcelWrite
-
-
-def table_promo(li: list):
-    table = PrettyTable(['№', 'Промо-ролики'])
-    k = 1
-    for i in li:
-        table.add_row([k, i])
-        k += 1
-    print(table)
-
-
-def get_file(name: str, di: dict):
-    with ExcelWrite('{}_clips.xls'.format(name)) as ex:
-        c = 0
-        for k, v in di.items():
-            r = 0
-            ex.write(r, c, k)
-            r += 1
-            for i in sorted(v):
-                ex.write(r, c, i)
-                r += 1
-            c += 1
-
-
 def print_menu_players():
     print('1. Просмотр загруженных промо-роликов')
     print('2. Выгрузить список клипов в файл')

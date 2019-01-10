@@ -28,9 +28,9 @@ class Menu:
             if menu_player_choice == 4:
                 break
             elif menu_player_choice == 1:
-                table_promo(player.listdir_promo())
+                player.table_promo()
             elif menu_player_choice == 2:
-                get_file(player.name, player.listdir_clips())
+                player.get_file()
             elif menu_player_choice == 3:
                 rewrite_promo(player.listdir_clips())
 
