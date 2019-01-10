@@ -1,5 +1,5 @@
 from mediaplayer import MediaPlayer
-from menu import Menu
+from app import App
 import json
 
 with open('mediaplayers.json') as file:
@@ -11,5 +11,5 @@ with open('mediaplayers.json') as file:
         k += 1
 
 print('Программа для добавления промо-роликов.')
-menu = Menu(players)
-menu.menu_main()
+app = App(players)
+app.run()
