@@ -46,13 +46,14 @@ class MediaPlayer:
 
     def rename_without_num(self):
         for folder, clips in self.listdir_clips().items():
+            full_path_folder = os.path.join(self.clips, folder)
             for clip in clips:
                 if re.search('promo', clip):
-                    os.remove(os.path.join(os.path.join(self.clips, folder), clip))
+                    os.remove(os.path.join(full_path_folder, clip))
                 else:
                     try:
-                        clip_old = os.path.join(os.path.join(self.clips, folder), clip)
-                        clip_new = os.path.join(os.path.join(self.clips, folder), '{}'.format(clip.split(' ')[1]))
+                        clip_old = os.path.join(full_path_folder, clip)
+                        clip_new = os.path.join(full_path_folder, '{}'.format(clip.split(' ')[1]))
                         os.rename(clip_old, clip_new)
                     except:
                         pass
