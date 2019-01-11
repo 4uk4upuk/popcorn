@@ -13,3 +13,4 @@ with open('mediaplayers.json') as file:
 print('Программа для добавления промо-роликов.')
 app = App(players)
 app.run()
+print('test')
