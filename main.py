@@ -7,7 +7,7 @@ with open('mediaplayers.json') as file:
     players = {}
     k = 1
     for i in di:
-        players[k] = MediaPlayer(i, di[i]['unc'], di[i]['clips'], di[i]['promo'])
+        players[k] = MediaPlayer(i, di[i]['clips'], di[i]['promo'])
         k += 1
 
 print('Программа для добавления промо-роликов.')

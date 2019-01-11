@@ -33,8 +33,7 @@ class App:
                 player.get_file()
             elif menu_player_choice == 3:
                 print('Внимание! Все промо-ролики находящиеся в папке "Promo" будут добавлены в плейлист, старые удалены!')
-                for i in player.listdir_clips():
-                    print(i)
+                player.rename_without_num()
 
     def print_menu_main(self):
         print('Выберите медияплеер:')
@@ -42,3 +41,4 @@ class App:
             print('{}. {}'.format(k, v.name))
         print('{}. Выход'.format(len(self.players) + 1))
         return len(self.players) + 1
+

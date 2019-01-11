@@ -1,24 +1,23 @@
 from prettytable import PrettyTable
 from cm import ExcelWrite
 import os
+import re
 
 
 class MediaPlayer:
-    def __init__(self, name, unc, clips, promo):
+    def __init__(self, name, clips, promo):
         self.name = name
-        self.unc = unc
         self.clips = clips
-        self.promo_down = promo
+        self.promo = promo
 
     def listdir_promo(self):
-        return os.listdir(os.path.join(self.unc, self.promo_down))
+        return os.listdir(self.promo)
 
     def listdir_clips(self):
         di = {}
-        path = os.path.join(self.unc, self.clips)
-        listdir = os.listdir(path)
+        listdir = os.listdir(self.clips)
         for i in listdir:
-            di[i] = sorted(os.listdir(os.path.join(path, i)))
+            di[i] = sorted(os.listdir(os.path.join(self.clips, i)))
         return di
 
     def table_promo(self):
@@ -40,3 +39,20 @@ class MediaPlayer:
                     ex.write(r, c, i)
                     r += 1
                 c += 1
+
+    def rewrite_promo(self):
+        for i in self.listdir_clips():
+            print(i)
+
+    def rename_without_num(self):
+        for folder, clips in self.listdir_clips().items():
+            for clip in clips:
+                if re.search('promo', clip):
+                    os.remove(os.path.join(os.path.join(self.clips, folder), clip))
+                else:
+                    try:
+                        clip_old = os.path.join(os.path.join(self.clips, folder), clip)
+                        clip_new = os.path.join(os.path.join(self.clips, folder), '{}'.format(clip.split(' ')[1]))
+                        os.rename(clip_old, clip_new)
+                    except:
+                        pass
