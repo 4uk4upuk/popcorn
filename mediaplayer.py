@@ -1,5 +1,7 @@
 from prettytable import PrettyTable
 from cm import ExcelWrite
+from itertools import cycle
+import shutil
 import os
 import re
 
@@ -41,8 +43,22 @@ class MediaPlayer:
                 c += 1
 
     def rewrite_promo(self):
-        for i in self.listdir_clips():
-            print(i)
+        for folder, clips in self.listdir_clips().items():
+            full_path_folder = os.path.join(self.clips, folder)
+            promo_li = cycle(self.listdir_promo())
+            k = 9
+            for clip in clips:
+                k += 1
+                if k % 7 == 0:
+                    current_promo = next(promo_li)
+                    src = os.path.join(self.promo, current_promo)
+                    dst = os.path.join(full_path_folder, '{}. {}'.format(k, current_promo))
+                    shutil.copy(src, dst)
+                    k += 1
+                clip_old = os.path.join(full_path_folder, clip)
+                clip_new = os.path.join(full_path_folder, '{}. {}'.format(k, clip))
+                os.rename(clip_old, clip_new)
+
 
     def rename_without_num(self):
         for folder, clips in self.listdir_clips().items():
