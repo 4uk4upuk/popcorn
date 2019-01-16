@@ -34,8 +34,8 @@ class App:
             elif menu_player_choice == 3:
                 print('Внимание! Все промо-ролики находящиеся в папке "Promo" будут добавлены в плейлист, старые удалены!')
                 while True:
-                    print('Продолжить? y/n:')
-                    answer = input()
+                    print('Продолжить?Y/N:')
+                    answer = input().lower()
                     if answer == 'n':
                         break
                     elif answer == 'y':
@@ -43,7 +43,6 @@ class App:
                         player.rewrite_promo()
                         print('Операция успешно завершена!\n')
                         break
-                break
 
 
     def print_menu_main(self):
