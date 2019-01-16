@@ -41,7 +41,7 @@ class App:
                     elif answer == 'y':
                         player.rename_without_num()
                         player.rewrite_promo()
-                        print('Операция успешно завершена!')
+                        print('Операция успешно завершена!\n')
                         break
                 break
 
