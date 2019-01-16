@@ -44,6 +44,7 @@ class MediaPlayer:
 
     def rewrite_promo(self):
         for folder, clips in self.listdir_clips().items():
+            print('Операция выполняется в каталоге: {}'.format(folder))
             full_path_folder = os.path.join(self.clips, folder)
             promo_li = cycle(self.listdir_promo())
             k = 9
@@ -58,7 +59,6 @@ class MediaPlayer:
                 clip_old = os.path.join(full_path_folder, clip)
                 clip_new = os.path.join(full_path_folder, '{}. {}'.format(k, clip))
                 os.rename(clip_old, clip_new)
-
 
     def rename_without_num(self):
         for folder, clips in self.listdir_clips().items():
