@@ -1,3 +1,6 @@
+from time import time
+
+
 class App:
     def __init__(self, players):
         self.players = players
@@ -39,9 +42,11 @@ class App:
                     if answer == 'n':
                         break
                     elif answer == 'y':
+                        start_time = time()
                         player.rename_without_num()
                         player.rewrite_promo()
-                        print('Операция успешно завершена!\n')
+                        ti = int(time() - start_time) // 60
+                        print('Завершено! Длительность: {} минут\n'.format(ti))
                         break
 
 
