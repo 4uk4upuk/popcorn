@@ -17,6 +17,13 @@ class App:
             if menu_main_choice in self.players:
                 self.menu_player(menu_main_choice)
 
+    def print_menu_main(self):
+        print('Выберите медияплеер:')
+        for k, v in self.players.items():
+            print('{}. {}'.format(k, v.name))
+        print('{}. Выход'.format(len(self.players) + 1))
+        return len(self.players) + 1
+
     def menu_player(self, choice):
         while True:
             print('1. Просмотр загруженных промо-роликов')
@@ -49,11 +56,4 @@ class App:
                         print('Завершено! Длительность: {} минут\n'.format(ti))
                         break
 
-
-    def print_menu_main(self):
-        print('Выберите медияплеер:')
-        for k, v in self.players.items():
-            print('{}. {}'.format(k, v.name))
-        print('{}. Выход'.format(len(self.players) + 1))
-        return len(self.players) + 1
 
