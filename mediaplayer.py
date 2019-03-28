@@ -11,6 +11,7 @@ class MediaPlayer:
         self.name = name
         self.clips = clips
         self.promo = promo
+        self.interval = 1
 
     def listdir_promo(self):
         return os.listdir(self.promo)
@@ -29,6 +30,17 @@ class MediaPlayer:
             table.add_row([k, i])
             k += 1
         print(table)
+
+    def set_interval(self):
+        print('Укажите интервал клипов между роликами:')
+        while True:
+            print('Число от единицы!')
+            try:
+                self.interval = int(input())
+            except:
+                self.interval = 0
+            if self.interval >= 1:
+                break
 
     def get_file(self):
         with ExcelWrite('excel/{}_clips.xls'.format(self.name)) as ex:
@@ -50,7 +62,7 @@ class MediaPlayer:
             k = 9
             for clip in clips:
                 k += 1
-                if k % 7 == 0:
+                if k % self.interval == 0:
                     current_promo = next(promo_li)
                     src = os.path.join(self.promo, current_promo)
                     dst = os.path.join(full_path_folder, '{}. {}'.format(k, current_promo))

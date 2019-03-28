@@ -42,6 +42,7 @@ class App:
             elif menu_player_choice == 2:
                 player.get_file()
             elif menu_player_choice == 3:
+                player.set_interval()
                 print('Внимание! Все промо-ролики находящиеся в папке "Promo" будут добавлены в плейлист, старые удалены!')
                 while True:
                     print('Продолжить?Y/N:')
