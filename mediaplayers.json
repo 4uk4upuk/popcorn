@@ -1,5 +1,5 @@
 {"BQ-PN": {"promo": "//10.0.0.40/share/Video/Promo", "clips": "//10.0.0.40/share/Video/Clips"},
  "BQ-MNG": {"promo": "//10.2.0.50/share/Video/Promo", "clips": "//10.2.0.50/share/Video/JANUARY 2018"},
 "RK-METR": {"promo": "//10.11.0.59/DuneHDD_528fdc7437d478e1/Promo", "clips": "//10.11.0.59/DuneHDD_528fdc7437d478e1/JANUARY 2018"},
-"BQ-OCEAN": {"promo": "//10.0.0.166/share/Video/Promo", "clips": "//10.0.0.166/share/Video/Clips"},
+"BQ-OCEAN": {"promo": "//10.26.0.80/share/Video/Promo", "clips": "//10.26.0.80/share/Video/Clips"},
 "TEST": {"promo": "D:/Popcorn/Promo", "clips": "D:/Popcorn/Clips"}}
