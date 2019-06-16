@@ -10,7 +10,7 @@ with open('mediaplayers.json') as file:
         players[k] = MediaPlayer(i, di[i]['clips'], di[i]['promo'])
         k += 1
 
-print('Программа для добавления промо-роликов.')
+print('Программа для добавления промо-роликов.TEST')
 app = App(players)
 app.run()
 
