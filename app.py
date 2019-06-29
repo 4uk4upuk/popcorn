@@ -18,7 +18,7 @@ class App:
                 self.menu_player(menu_main_choice)
 
     def print_menu_main(self):
-        print('Выберите медияплеер:')
+        print('Выберите медияплеер:TEST')
         for k, v in self.players.items():
             print('{}. {}'.format(k, v.name))
         print('{}. Выход'.format(len(self.players) + 1))
